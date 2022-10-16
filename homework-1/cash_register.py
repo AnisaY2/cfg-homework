@@ -20,7 +20,7 @@ class CashRegister:
 
     def __init__(self):
 
-        self.total_items = {}   # {'item': 'price'}
+        self.total_items = {}
         self.total_price = 0
         self.discount = 0
 
@@ -34,13 +34,14 @@ class CashRegister:
 
     def apply_discount(self, discount):
         self.discount = discount
-        discount_decimal = discount / 100
-        discounted_total = sum(self.total_items.values()) * (1 - discount_decimal)
-        print(f"{discount}% discount applied. \nNew total price: £{discounted_total:.2f}")
+        print(f"{discount}% discount applied.")
 
     def get_total(self):
         self.total_price = sum(self.total_items.values())
-        print(f"Total Price: £{self.total_price:.2f}\n")
+        discount_decimal = self.discount / 100
+        discounted_total = self.total_price * (1 - discount_decimal)
+        print(f"Total Price (including any discount): £{discounted_total:.2f}")
+        return discounted_total
 
     def show_items(self):
         print(f"Current items: {self.total_items}")
@@ -52,19 +53,13 @@ class CashRegister:
         print("Cash register has been reset")
 
 
-# EXAMPLE code run:
 customer = CashRegister()
 
 customer.add_item("Bag", 2.75)
 customer.add_item("Jumper", 11.99)
 customer.add_item("Socks", 3.50)
-
 customer.remove_item("Bag")
-
 customer.apply_discount(3.25)
-
 customer.get_total()
-
 customer.show_items()
-
 customer.reset_register()
