@@ -54,7 +54,6 @@ class CashRegister:
 
 
 customer = CashRegister()
-
 customer.add_item("Bag", 2.75)
 customer.add_item("Jumper", 11.99)
 customer.add_item("Socks", 3.50)

@@ -49,7 +49,6 @@ class CFGStudent(Student):
 
 
 student_42 = CFGStudent(name='C', age=38, student_id=42, specialization='Software Engineer')
-
 student_42.add_subject('Object-Orientated Programming', 95)
 student_42.add_subject('Decorators', 86)
 student_42.add_subject('Collections', 90)
