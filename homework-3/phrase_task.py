@@ -24,7 +24,17 @@ IMPORTANT:
     You can always generate an empty string.
 
 """
+from collections import Counter
 
 
 def generate_phrase(characters, phrase):
-    pass
+    count_phrase = Counter(phrase)
+    count_characters = Counter(characters)
+
+    if len(characters) < len(phrase):
+        return False                  # Phrase is too long
+    else:
+        for letter in count_phrase.keys():
+            if letter not in count_characters.keys() or count_characters[letter] < count_phrase[letter]:
+                return False          # Phrase contains character(s) not in the characters' string or that letters value in characters dict is less than how many the phrase needs
+        return True
