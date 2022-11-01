@@ -38,3 +38,17 @@ def generate_phrase(characters, phrase):
             if letter not in count_characters.keys() or count_characters[letter] < count_phrase[letter]:
                 return False          # Phrase contains character(s) not in the characters' string or that letters value in characters dict is less than how many the phrase needs
         return True
+
+
+# Test Cases
+characters = "abbcccd"
+phrase = "abcd"
+print(generate_phrase(characters, phrase))
+
+characters = "cabb ccd!? dd12*3"
+phrase = "A-z"
+print(generate_phrase(characters, phrase))
+
+characters = "cabb ccd!? dd12*3"
+phrase = "* cadb!?"
+print(generate_phrase(characters, phrase))
