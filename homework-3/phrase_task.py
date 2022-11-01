@@ -24,6 +24,8 @@ IMPORTANT:
     You can always generate an empty string.
 
 """
+
+
 from collections import Counter
 
 
@@ -32,11 +34,11 @@ def generate_phrase(characters, phrase):
     count_characters = Counter(characters)
 
     if len(characters) < len(phrase):
-        return False                  # Phrase is too long
+        return False                  # Phrase is longer than the number of characters available
     else:
         for letter in count_phrase.keys():
             if letter not in count_characters.keys() or count_characters[letter] < count_phrase[letter]:
-                return False          # Phrase contains character(s) not in the characters' string or that letters value in characters dict is less than how many the phrase needs
+                return False          # Phrase contains character(s) not in the characters' string or that letters value in count_characters dict is less than how many the phrase needs
         return True
 
 
@@ -45,10 +47,10 @@ characters = "abbcccd"
 phrase = "abcd"
 print(generate_phrase(characters, phrase))
 
-characters = "cabb ccd!? dd12*3"
+characters = "cabb ccd!? dd32*1"
 phrase = "A-z"
 print(generate_phrase(characters, phrase))
 
-characters = "cabb ccd!? dd12*3"
+characters = "cabb ccd!? dd32*1"
 phrase = "* cadb!?"
 print(generate_phrase(characters, phrase))
